@@ -1,0 +1,4 @@
+.form-control option{
+    text-transform: capitalize;
+    font-size: 1.5rem;
+}

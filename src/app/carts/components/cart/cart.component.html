@@ -1,0 +1,95 @@
+<div class="row">
+  <h1 class="my-5 text-center">My Shopping Cart</h1>
+  <div class="cart">
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <th scope="col" colspan="2">Description</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+          <th scope="col">Remove</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr *ngFor="let product of cartProducts; let i = index">
+          <td>
+            <img
+            [src]="product.item.image"
+            alt=""
+            class="img-thumbnail float-start"
+          />
+          </td>
+          <td class="w-50">
+           
+            <div class="desc">
+              <h5>{{ product.item.title }}</h5>
+              <p>{{ product.item.description }}</p>
+            </div>
+          </td>
+          <td>
+            <div class="wrapper">
+              <label class="minus" (click)="minus(i)">-</label>
+              <input
+                type="number"
+                class="number"
+                (change)="detectAmount()"
+                [(ngModel)]="product.quantity"
+              />
+              <label class="plus" (click)="plus(i)">+</label>
+            </div>
+          </td>
+          <td>{{ product.item.price }} L.E</td>
+          <td>
+            <span class="p-2" (click)="deleteProduct(i)"
+              ><i class="fa-solid fa-trash"></i
+            ></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div
+    class="col-md-3 shadow d-flex align-items-center justify-content-between my-4 py-4"
+  >
+    <p>Discount:</p>
+    <p>0.00 L.E</p>
+  </div>
+  <div
+    class="col-md-3 shadow d-flex align-items-center justify-content-between my-4 py-4"
+  >
+    <p>Delivery:</p>
+    <p>0.00 L.E</p>
+  </div>
+  <div
+    class="col-md-3 shadow d-flex align-items-center justify-content-between my-4 py-4"
+  >
+    <p>Subtotal:</p>
+    <p>0.00 L.E</p>
+  </div>
+  <div
+    class="col-md-3 shadow d-flex align-items-center justify-content-between my-4 py-4"
+  >
+    <p>Total:</p>
+    <p>{{ total }} L.E</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-5 my-4">
+    <input
+      class="form-control py-4 fs-3"
+      type="text"
+      placeholder="Please enter romo code"
+    />
+  </div>
+  <div class="col-md-3 my-4">
+    <button class="btn w-100 py-4">Apply Discount</button>
+  </div>
+  <div class="col-md-4 my-4">
+    <button class="btn w-100 py-4" (click)="addCart()">
+      Check Out ({{ cartProducts.length }})
+    </button>
+  </div>
+</div>

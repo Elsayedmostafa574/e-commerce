@@ -1,0 +1,15 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navbar .pagination li a{
+    background-color: #4D869C;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 10px 30px;
+}
+.navbar .pagination li a:hover{
+    background-color: #fff;
+    color: #4D869C;
+}

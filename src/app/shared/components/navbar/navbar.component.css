@@ -1,0 +1,18 @@
+.navbar{
+    background-color: #4D869C;
+}
+.navbar-brand{
+    color: #EEF7FF;
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+.navbar .nav-link{
+    color: #EEF7FF;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.active{
+   border-bottom: 2px solid #fff;
+}
